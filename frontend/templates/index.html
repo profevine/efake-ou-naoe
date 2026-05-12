@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eFake ou Não É?</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>e<span>Fake</span> ou Não É?</h1>
+    <p>Verifique se uma notícia é fake news usando fact-checkers brasileiros e análise automática</p>
+  </header>
+
+  <div class="container">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab-analyze">Verificar</button>
+      <button class="tab-btn" data-tab="tab-history">Histórico</button>
+    </div>
+
+    <!-- VERIFICAR -->
+    <div id="tab-analyze" class="tab-panel active">
+      <div class="card">
+        <form id="analyze-form">
+          <textarea
+            id="news-input"
+            placeholder="Cole aqui a URL da notícia ou o texto completo..."
+            rows="4"
+          ></textarea>
+          <button type="submit" class="btn" id="submit-btn">
+            <span id="spinner" class="spinner"></span>
+            Verificar
+          </button>
+        </form>
+        <div id="error-msg" class="error-msg"></div>
+      </div>
+
+      <!-- RESULTADO -->
+      <div id="result">
+        <div id="verdict-banner" class="verdict-banner">
+          <div id="verdict-icon" class="verdict-icon"></div>
+          <div>
+            <div id="verdict-label" class="verdict-label"></div>
+            <div id="verdict-score-text" class="verdict-score"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">Indicador de risco</div>
+          <div class="score-bar-wrap">
+            <div class="score-bar-track">
+              <div id="score-bar-fill" class="score-bar-fill" style="width:0%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">O que encontramos nos fact-checkers</div>
+          <div id="fc-list" class="fc-list"></div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">Sinais detectados</div>
+          <div id="signals-grid" class="signals-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HISTÓRICO -->
+    <div id="tab-history" class="tab-panel">
+      <div class="card">
+        <div class="section-title">Análises recentes</div>
+        <div id="history-list" class="history-list">
+          <p class="empty-note">Clique na aba para carregar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# Domínios conhecidos por disseminar fake news no Brasil
+# Fonte: compilação pública de pesquisadores e organizações de fact-checking
+
+# Portais de notícias falsas confirmados
+verdade-agora.com
+verdadeagora.net
+noticiasagora.net
+brasil247fake.com
+folhapolitica.org
+olavodecarvalho.org.br
+terça-livre.com
+jornaldacidadaoonline.com.br
+oantagonista.fake
+brazilnews.site
+noticiasverdadeiras.site
+urgentebrasil.online
+noticiasurgentes.site
+brasilativo.com.br
+diariodobrasil.org
+noticias24horas.click
+brasilsemnoticias.xyz
+obrasilsemfake.top
