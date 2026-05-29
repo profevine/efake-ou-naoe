@@ -30,7 +30,12 @@ _SUSPICIOUS_TLDS = {".click", ".xyz", ".top", ".info", ".biz", ".site", ".online
 
 def extract_domain(url: str) -> Optional[str]:
     try:
-        return urlparse(url).netloc.lower().lstrip("www.")
+        netloc = urlparse(url).netloc.lower()
+        # strip credentials and port, then the leading "www." label
+        netloc = netloc.rsplit("@", 1)[-1].split(":", 1)[0]
+        if netloc.startswith("www."):
+            netloc = netloc[4:]
+        return netloc or None
     except Exception:
         return None
 

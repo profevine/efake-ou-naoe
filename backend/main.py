@@ -3,7 +3,7 @@ import os
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
@@ -42,8 +42,8 @@ async def analyze_news(body: AnalyzeRequest):
 
 
 @app.get("/history", response_model=list[HistoryItem])
-async def history():
-    rows = await database.get_history()
+async def history(limit: int = Query(default=50, ge=1, le=200)):
+    rows = await database.get_history(limit=limit)
     return rows
 
 

@@ -1,6 +1,7 @@
 from __future__ import annotations
 import asyncio
 import hashlib
+import json
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
@@ -44,7 +45,6 @@ async def analyze(input_text: str) -> AnalyzeResult:
 
     cached_row = await database.get_cached(h)
     if cached_row:
-        import json
         signals_data = json.loads(cached_row["signals"])
         signals = Signals(**signals_data)
         verdict, label = verdict_from_score(cached_row["score"])
